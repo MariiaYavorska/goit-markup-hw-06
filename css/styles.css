@@ -678,11 +678,13 @@ body {
 	min-width: 528px;
 	min-height: 581px;
 	border-radius: 4px;
-	background-color: var(--text-color-white);
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+	background-color: var(--text-color-white);
 }
 
 .button-close {
@@ -728,9 +730,9 @@ body {
 	width: 448px;
   }
 
-  .form-field:not(:last-child) {
-	margin-top: 0;
-	margin-bottom: 10px;
+  .form-field:not(:first-child) {
+	margin-top: 10px;
+	margin-bottom: 0;
   }
 
   .form-input {
@@ -780,15 +782,9 @@ body {
 
 .checkbox {
 	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	border: 0;
-	padding: 0;
-	white-space: nowrap;
-	clip-path: inset(100%);
-	clip: rect(0 0 0 0);
-	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 .icon-checked {
@@ -818,11 +814,15 @@ body {
 	margin-bottom: 30px;
   }
   .agreement-terms {
+	  margin-top: 0;
 	color: var(--accent-color);
 	text-decoration: underline;	
   }
 
   .form > .btn {
+	  margin-top: 0;
+    min-width: 200px;
+    min-height: 50px;
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
