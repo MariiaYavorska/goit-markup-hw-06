@@ -731,10 +731,9 @@ body {
   }
 
   .form-field:not(:first-child) {
-	margin-top: 10px;
-	margin-bottom: 0;
+	  margin-top: 10px;
   }
-
+  
   .form-input {
 	padding: 12px 12px 12px 42px;
 	width: 100%;
