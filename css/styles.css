@@ -455,6 +455,7 @@ body {
 .footer-nav {
 	display: flex;
 	align-items: baseline;
+	justify-content: space-between;
   }
 .link-address {
 	font-style: normal;
@@ -708,21 +709,24 @@ body {
 	fill: var(--text-color-black-logo);
 	transition: fill 250ms var(--timing-function);
   }
-  .icon-close:hover,
-  .icon-close:focus {
+  .button-close:hover > .icon-close,
+  .button-close:focus > .icon-close {
 	fill: var(--accent-color);
   }
 
 /*=========== Modal window form============== */
 .form-title {
-	margin-top: 0;
 	margin-bottom: 12px;
 	text-align: center;
 	font-weight: 700;
 	font-size: 20px;
 	color: var(--text-color-black);
 	line-height: 1.15;
-	letter-spacing: 0.03em;
+	
+  }
+  .form-field p {
+     font-size: 12px;
+	 letter-spacing: 0.01em;
   }
   .form-field {
 	position: relative;
@@ -733,10 +737,11 @@ body {
   .form-field:not(:first-child) {
 	  margin-top: 10px;
   }
-  
+
   .form-input {
 	padding: 12px 12px 12px 42px;
 	width: 100%;
+	height: 40px;
 	border: 1px solid rgba(33, 33, 33, 0.2);
 	border-radius: 4px;
 	transition: border-color 250ms var(--timing-function);
@@ -806,19 +811,16 @@ body {
 }
 .checkbox-text {
 	display: inline-block;
-	line-height: 1.71;
-	letter-spacing: 0.03em;
-	color: var(--text-color-grey);
 	margin-bottom: 30px;
   }
   .agreement-terms {
-	  margin-top: 0;
+	
 	color: var(--accent-color);
 	text-decoration: underline;	
   }
 
   .form > .btn {
-	  margin-top: 0;
+    margin-top: 0;
     min-width: 200px;
     min-height: 50px;
 	display: block;
