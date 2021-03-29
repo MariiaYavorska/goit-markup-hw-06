@@ -738,14 +738,15 @@ body {
 	 line-height: 1.16;
 	 letter-spacing: 0.01em;
 	 margin-bottom: 4px;
+	  
   }
-  .form-area {
+   .form-area {
 	  position: relative;
   }
-
-  .form-field {
-	  margin-bottom: 10px;
-  }
+    .form-field {
+	 margin-bottom: 10px;
+}
+ 
  
   .form-input {
    width: 100%;
@@ -825,6 +826,10 @@ body {
   border-color: var(--accent-color);
   background-color: var(--accent-color);
   background-image: url(../images/icons/checked.svg);
+}
+.checkbox:focus-visible + .icon-checked{
+	border: 2px solid var(--text-color-black);
+
 }
 .checkbox-text {
 	display: inline-block;
