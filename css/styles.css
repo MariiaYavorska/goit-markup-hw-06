@@ -1,13 +1,23 @@
 html {
 	box-sizing: border-box;
 }
-
 *,
 *::before,
 *::after {
 	box-sizing: inherit;
 }
-
+.visually-hidden {
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	margin: -1px;
+  }
 /* ===================delete default styles=============*/
 * {
 	margin: 0;
@@ -39,27 +49,14 @@ img {
 	--background-color-social-link-footer: rgba(255, 255, 255, 0.1);
 	--border-color: #e5e5e5;
 	--border-color-projects: #eeeeee;
+	--border-color-close-button: rgba(0, 0, 0, 0.1);
 	--icon-color: #afb1b8;
 	--timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.visually-hidden {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	border: 0;
-	padding: 0;
-	white-space: nowrap;
-	clip-path: inset(100%);
-	clip: rect(0 0 0 0);
-	overflow: hidden;
-  }
 /*======================== General styles for index.html page=======================*/
 body {
 	margin: 0;
 	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
 	font-size: 14px;
 	line-height: 1.71;
 	letter-spacing: 0.03em;
@@ -203,52 +200,53 @@ body {
 /* ===================================Hero============================================*/
 
 .hero {
-	max-width: 1600px;
-	height: 600px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto;
 	padding: 200px 0;
 	text-align: center;
+	max-width: 1600px;
+	min-height: 600px;
 	background-color: var(--background-color-gray);
 	background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
 		url(../images/background-photo.jpg);
 }
 
 .hero-title {
-    font-weight: 900;
-	font-size: 44px;
 	margin: 0 auto 30px;
-	max-width: 696px;
+	width: 696px;
 	text-align: center;
+	font-weight: 900;
+	font-size: 44px;
 	line-height: 1.36;
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
 	color: var(--text-color-white);
 }
-.hero-btn {
-	padding: 10px 32px;
+
+.btn{
+	font-family: 'Roboto', sans-serif;
+	cursor: pointer;
 }
-.btn {
+.hero-btn {
 	margin-top: 0;
+	padding: 10px 32px;
 	display: inline-block;
-	min-width: 200px;
-	min-height: 50px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 	border: none;
 	border-radius: 4px;
 	font-weight: 700;
 	font-size: 16px;
-	font-family: inherit;
 	line-height: 1.88;
 	letter-spacing: 0.06em;
 	color: var(--text-color-white);
 	background-color: var(--accent-color);
-	cursor: pointer;
+}
+
+.hero-btn:hover,
+.hero-btn:focus{
+background-color: #188CE8;
 }
 /* =============================Benefits=================================*/
-.work-process,
-.benefits,
-.team {
+.section {
 	padding-top: 94px;
 	padding-bottom: 94px;
 }
@@ -302,14 +300,11 @@ body {
 
 .work-process {
 	padding-top: 0;
-	padding-bottom: 94px;
 }
 .work-process-gallery {
 	display: flex;
 }
-.work-process-title,
-.team-title,
-.clients-title {
+.title {
 	margin-top: 0;
 	margin-bottom: 50px;
 	font-weight: 700;
@@ -321,10 +316,16 @@ body {
 .work-process-list {
 	position: relative;
 	margin-top: 0;
-	margin-right: 30px;
 	width: 370px;
 }
-   
+.work-process-list:not(:last-child) {
+	margin-right: 30px;
+}
+.work-process-img {
+	display: block;
+	max-width: 100%;
+}
+
 .white-title {
 	position: absolute;
 	padding: 27px 0;
@@ -346,10 +347,6 @@ body {
 .team-list {
 	display: flex;
 }
-.team-title {
-	margin-top: 0;
-	margin-bottom: 50px;
-}
 
 .team-list .item + .item {
 	margin-left: 30px;
@@ -364,12 +361,16 @@ body {
 	border-radius: 0px 0px 4px 4px;
 }
 .team-image {
+	display: block;
+	max-width: 100%;
 	margin-top: 0;
-	margin-bottom: 30px;
 }
 
+.team-descr {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
 .team-member {
-	margin-top: 0;
 	margin-bottom: 10px;
 	font-weight: 500;
 	font-size: 16px;
@@ -378,15 +379,14 @@ body {
 	color: var(--text-color-black);
 }
 .position {
-	margin-top: 0;
-	margin-bottom: 30px;
+	margin-bottom: 16px;
 	font-size: 16px;
 	line-height: 1.19;
 	text-align: center;
 }
 .member-social-links {
 	display: flex;
-	margin: 0 32px 30px;
+	justify-content: center;
 }
 .social-link {
 	display: flex;
@@ -413,14 +413,6 @@ body {
 	fill: currentColor;
 }
 /*==========================Clients======================*/
-.clients {
-	padding-top: 94px;
-	padding-bottom: 94px;
-}
-.clients-title {
-	margin-top: 0;
-	margin-bottom: 50px;
-}
 .clients-list {
 	display: flex;
 }
@@ -458,13 +450,15 @@ body {
 .footer-nav {
 	display: flex;
 	align-items: baseline;
-	justify-content: space-between;
   }
 .link-address {
 	font-style: normal;
 	color: var(--text-color-white);
 }
-
+.link-address:hover,
+.link-address:focus{
+	color: var(--accent-color);
+}
 .auth-nav-footer:first-child {
 	margin-top: 20px;
 }
@@ -476,6 +470,10 @@ body {
 	font-weight: 400;
 	font-style: normal;
 	color: var(--text-color-auth-nav);
+}
+.footer-contact-link:hover,
+.footer-contact-link:focus{
+	color: var(--accent-color);
 }
 .footer-social-links {
 	margin-left: 70px;
@@ -504,18 +502,15 @@ body {
 }
 
 .social-link-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  background: var(--background-color-social-link-footer);
-  background-size: 20px;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 50%;
-  transition: background-color 250ms var(--timing-function);
-}
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	background: var(--background-color-social-link-footer);
+	border-radius: 50%;
+	transition: background-color 250ms var(--timing-function);
+  }
 
 .social-link-footer:hover,
 .social-link-footer:focus {
@@ -545,6 +540,15 @@ body {
 	display: inline-flex;
 	align-items: center;
 	padding: 10px 28px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+	border: none;
+	border-radius: 4px;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1.88;
+	letter-spacing: 0.06em;
+	color: var(--text-color-white);
+	background-color: var(--accent-color);
 }
 
 .footer-btn svg {
@@ -678,11 +682,11 @@ body {
 }
 
 .modal {
+    position: absolute;
 	padding: 40px;
 	min-width: 528px;
 	min-height: 581px;
 	border-radius: 4px;
-	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -727,6 +731,7 @@ body {
 	text-align: center;
 	font-weight: 700;
 	font-size: 20px;
+	letter-spacing: 0.03em;
 	color: var(--text-color-black);
 	line-height: 1.15;
 	margin-bottom: 12px;
@@ -735,7 +740,7 @@ body {
   .form-label {
      display: block;
      font-size: 12px;
-	 line-height: 1.16;
+	 line-height: 1.17;
 	 letter-spacing: 0.01em;
 	 margin-bottom: 4px;
 	  
@@ -747,12 +752,11 @@ body {
 	 margin-bottom: 10px;
 }
  
- 
   .form-input {
-   width: 100%;
+    width: 100%;
 	height: 40px;
-	padding-top: 11px;
-    padding-bottom: 11px;
+	padding-top: 12px;
+    padding-bottom: 12px;
     padding-left: 42px;
 	border: 1px solid rgba(33, 33, 33, 0.2);
 	border-radius: 4px;
@@ -761,9 +765,9 @@ body {
   }
   
   .form-input:focus {
-	  cursor: pointer;
-	   border-color: var(--accent-color);
-	   outline: none;
+	cursor: pointer;
+	border-color: var(--accent-color);
+	outline: none;
   }
  
   .input-icon {
@@ -788,7 +792,7 @@ body {
 	height: 120px;
 	resize: none;
 }
-.form-field textarea::placeholder {
+.form-field-comment textarea::placeholder {
   line-height: 1.14;
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
@@ -802,10 +806,22 @@ body {
 }
 
 .checkbox {
-	position: absolute;
+	 /* 
+	 position: absolute;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	 */
+	 position: absolute;
+	 width: 1px;
+	 height: 1px;
+	 margin: -1px;
+	 border: 0;
+	 padding: 0;
+	 white-space: nowrap;
+	 clip-path: inset(100%);
+	 clip: rect(0 0 0 0);
+	 overflow: hidden; 
 }
 
 .icon-checked {
@@ -826,6 +842,7 @@ body {
   border-color: var(--accent-color);
   background-color: var(--accent-color);
   background-image: url(../images/icons/checked.svg);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 .checkbox:focus-visible + .icon-checked{
 	border: 2px solid var(--text-color-black);
@@ -840,11 +857,21 @@ body {
 	text-decoration: underline;	
   }
 
-  .form > .btn {
-    margin-top: 0;
-    min-width: 200px;
-    min-height: 50px;
-	display: block;
-	margin-right: auto;
-	margin-left: auto;
+  .modal-btn {
+	display: inline-flex;
+	align-items: center;
+	text-align: center;
+	margin: auto;
+	padding: 10px 55px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+	border: none;
+	border-radius: 4px;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1.88;
+	letter-spacing: 0.06em;
+	color: var(--text-color-white);
+	background-color: var(--accent-color)
   }
+
+  
