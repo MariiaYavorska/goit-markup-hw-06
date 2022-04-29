@@ -531,6 +531,10 @@ background-color: #188CE8;
 	border-radius: 4px;
   }
 
+  .footer-input:focus {
+	  border-color: var(--text-color-white);
+	  outline: none;
+  }
 .footer-input::placeholder {
   font-size: 16px;
   line-height: 1.25;
@@ -549,6 +553,10 @@ background-color: #188CE8;
 	letter-spacing: 0.06em;
 	color: var(--text-color-white);
 	background-color: var(--accent-color);
+}
+.footer-btn:hover,
+.footer-btn:focus{
+	background-color: #188CE8;
 }
 
 .footer-btn svg {
@@ -827,7 +835,9 @@ background-color: #188CE8;
 	background-size: contain;
 	border-color: var(--accent-color);
 	background-color: var(--accent-color);
-	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); 
+}
+.checkbox:focus-within + .checkbox-label span {
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); 
 }
 
 .checkbox:checked + .checkbox-label .icon-checked {
@@ -840,6 +850,10 @@ background-color: #188CE8;
   .agreement-terms {
 	color: var(--accent-color);
 	text-decoration: underline;	
+  }
+  .agreement-terms:hover,
+  .agreement-terms:focus {
+	  text-decoration: none;
   }
 
   .modal-btn {
@@ -858,5 +872,10 @@ background-color: #188CE8;
 	color: var(--text-color-white);
 	background-color: var(--accent-color)
   }
+
+  .modal-btn:hover,
+  .modal-btn:focus{
+	background-color: #188CE8;
+}
 
   
